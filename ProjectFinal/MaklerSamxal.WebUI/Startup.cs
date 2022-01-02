@@ -1,6 +1,8 @@
+using MaklerSamxal.WebUI.Models.DataContexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,6 +25,11 @@ namespace MaklerSamxal.WebUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<MaklerSamxalDbContext>(cfg =>
+            {
+                cfg.UseSqlServer(Configuration.GetConnectionString("cString"));
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

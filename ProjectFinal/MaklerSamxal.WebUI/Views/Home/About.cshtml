@@ -1,4 +1,5 @@
-﻿<div class="hero" style="        background-image: url(https://preview.colorlib.com/theme/warehouse/images/xhero_1.jpg.pagespeed.ic.aek8z5kvkt.webp);
+﻿@model List<Testimionals> 
+<div class="hero" style="        background-image: url(https://preview.colorlib.com/theme/warehouse/images/xhero_1.jpg.pagespeed.ic.aek8z5kvkt.webp);
         background-size: cover;
         height: 600px;
         background-attachment: fixed;"></div>
@@ -92,61 +93,23 @@
         </div>
     </div>
     <div class="row mt-5">
-        <div class="col-md-6 TESTIMONIALS ">
-            <div class="ftco-testimonial-1">
-                <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
-                    <img style="width: 50px;height: 50px;border-radius: 50%;margin-top: 20px;" src="~/assets/images/image-5.jpg" alt="Image" class="img-fluid mr-3" data-pagespeed-url-hash="2941781182" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-6 TESTIMONIALS ">
+                <div class="ftco-testimonial-1">
+                    <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
+                        <img style="width: 50px;height: 50px;border-radius: 50%;margin-top: 20px;" src="~/assets/images/@item.ImagePath" alt="Image" class="img-fluid mr-3" data-pagespeed-url-hash="2941781182" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                        <div>
+                            <h3 style="margin-top: 20px;">@item.FullName</h3>
+                            <span style="margin-top: -8px;display: block;color:#a2a2a2 ;">@item.Customer</span>
+                        </div>
+                    </div>
                     <div>
-                        <h3 style="margin-top: 20px;">Allison Holmes</h3>
-                        <span style="margin-top: -8px;display: block;color:#a2a2a2 ;">Customer</span>
+                        <p style="color: #a2a2a2;font-weight: 400;">@item.Desription</p>
                     </div>
                 </div>
-                <div>
-                    <p style="color: #a2a2a2;font-weight: 400;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure maiores, perferendis, provident numquam illum nisi amet necessitatibus. A, provident aperiam!</p>
-                </div>
             </div>
-        </div>
-        <div class="col-md-6 TESTIMONIALS ">
-            <div class="ftco-testimonial-1">
-                <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
-                    <img style="width: 50px;height: 50px;border-radius: 50%;margin-top: 20px;" src="~/assets/images/image-6.jpg" alt="Image" class="img-fluid mr-3" data-pagespeed-url-hash="2941781182" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
-                    <div>
-                        <h3 style="margin-top: 20px;">Allison Holmes</h3>
-                        <span style="margin-top: -8px;display: block;color:#a2a2a2 ;">Customer</span>
-                    </div>
-                </div>
-                <div>
-                    <p style="color: #a2a2a2;font-weight: 400;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure maiores, perferendis, provident numquam illum nisi amet necessitatibus. A, provident aperiam!</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 TESTIMONIALS ">
-            <div class="ftco-testimonial-1">
-                <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
-                    <img style="width: 50px;height: 50px;border-radius: 50%;margin-top: 20px;" src="~/assets/images/image-7.jpg" alt="Image" class="img-fluid mr-3" data-pagespeed-url-hash="2941781182" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
-                    <div>
-                        <h3 style="margin-top: 20px;">Allison Holmes</h3>
-                        <span style="margin-top: -8px;display: block;color:#a2a2a2 ;">Customer</span>
-                    </div>
-                </div>
-                <div>
-                    <p style="color: #a2a2a2;font-weight: 400;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure maiores, perferendis, provident numquam illum nisi amet necessitatibus. A, provident aperiam!</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 TESTIMONIALS ">
-            <div class="ftco-testimonial-1">
-                <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
-                    <img style="width: 50px;height: 50px;border-radius: 50%;margin-top: 20px;" src="~/assets/images/image-8.jpg" alt="Image" class="img-fluid mr-3" data-pagespeed-url-hash="2941781182" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
-                    <div>
-                        <h3 style="margin-top: 20px;">Allison Holmes</h3>
-                        <span style="margin-top: -8px;display: block;color:#a2a2a2 ;">Customer</span>
-                    </div>
-                </div>
-                <div>
-                    <p style="color: #a2a2a2;font-weight: 400;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure maiores, perferendis, provident numquam illum nisi amet necessitatibus. A, provident aperiam!</p>
-                </div>
-            </div>
-        </div>
+        }
+
     </div>
 </div>
