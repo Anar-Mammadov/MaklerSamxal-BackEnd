@@ -1,4 +1,4 @@
-﻿
+﻿@model Product
 
 <div class="hero" style="background-image: url('https://preview.colorlib.com/theme/warehouse/images/xhero_1.jpg.pagespeed.ic.aek8z5kvkt.webp'); background-size: cover; height: 600px; background-attachment: fixed;">
     <div class="container">
@@ -6,8 +6,8 @@
             <div style="margin-top: 270px !important;color: white;font-family:Oswald,sans-serif;
                 font-weight: 300!important;
                 text-transform: uppercase;" class="col-md-5 mx-auto mt-lg-5 text-center">
-                <h1>HD17 19 Utica Ave, New York, USA</h1>
-                <p class="mb-5"><strong class="text-white">$2,000,000</strong></p>
+                <h1>@Model.Title, @Model.Location</h1>
+                <p class="mb-5"><strong class="text-white">@Model.Price</strong></p>
             </div>
         </div>
     </div>
@@ -18,7 +18,7 @@
     <div class="row mt-5">
         <div class="col-lg-7 details">
 
-            <img src="~/assets/images/card-4.jpg" alt="">
+            <img src="~/assets/images/@Model.ImagePath" alt="">
 
         </div>
 
@@ -26,10 +26,10 @@
 
             <div style="margin-top: 20px;" class="mb-5">
                 <h3 class="text-black mb-4">Property Details</h3>
-                <p style="color:gray;margin-top: 30px;">6 Beds, 4 Baths, 4250 sqft.</p>
-                <p style="color:gray;margin-top: 30px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa tempore repudiandae optio aliquam perspiciatis est quae enim quaerat eos hic dolorem accusamus molestias repellat consequatur velit, officiis nihil magnam placeat!</p>
-                <p style="color:gray;margin-top: 30px;">Ex, esse? Obcaecati nam in cum eius quaerat repellendus adipisci ducimus dolorum sed quos. Amet recusandae cumque reprehenderit nam quia voluptatibus, repellat, aspernatur ut fuga perferendis consectetur excepturi neque in!</p>
-                <p style="color:gray;margin-top: 30px;" class="mb-4">Neque facilis iure earum, placeat odit ipsum, amet, optio accusantium voluptatem quasi obcaecati fugit? Explicabo eius dolorem provident quis non voluptas, dignissimos tempora eligendi, in, nam velit, quasi tenetur. Animi!</p>
+                <p style="color:gray;margin-top: 30px;">@Model.Bed Beds, @Model.Baths Baths, @Model.Sqft sqft.</p>
+                <p style="color:gray;margin-top: 30px;">@Model.Description</p>
+                <p style="color:gray;margin-top: 30px;">@Model.ShopDescription</p>
+                <p style="color:gray;margin-top: 30px;" class="mb-4">@Model.ShopDescription</p>
                 <p><a href="#" class="btn btn-primary fakingboycik">Buy Property</a></p>
             </div>
 

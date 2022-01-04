@@ -1,7 +1,9 @@
 using MaklerSamxal.WebUI.Models.DataContexts;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,6 +32,12 @@ namespace MaklerSamxal.WebUI
             {
                 cfg.UseSqlServer(Configuration.GetConnectionString("cString"));
             });
+
+
+            services.AddMediatR(this.GetType().Assembly);
+            //Mediatr Commanlarda Create olunanda isvalid yazmaq ucun yazilib                
+            services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -38,7 +46,7 @@ namespace MaklerSamxal.WebUI
             {
                 app.UseDeveloperExceptionPage();
             }
-        
+
             app.UseStaticFiles();
 
             app.UseRouting();
@@ -46,6 +54,10 @@ namespace MaklerSamxal.WebUI
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+            name: "areas",
+            pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}"
+          );
                 endpoints.MapControllerRoute(
 
                     name: "default",

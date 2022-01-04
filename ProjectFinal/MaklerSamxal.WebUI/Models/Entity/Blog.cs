@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace MaklerSamxal.WebUI.Models.Entity
+﻿namespace MaklerSamxal.WebUI.Models.Entity
 {
     public class Blog :BaseEntity
     {

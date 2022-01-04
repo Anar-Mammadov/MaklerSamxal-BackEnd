@@ -152,6 +152,57 @@ namespace MaklerSamxal.WebUI.Migrations
                     b.ToTable("Contacts");
                 });
 
+            modelBuilder.Entity("MaklerSamxal.WebUI.Models.Entity.Product", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Baths")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Bed")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("CreateByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreateData")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("DeleteByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DeleteData")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Price")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShopDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Sqft")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Products");
+                });
+
             modelBuilder.Entity("MaklerSamxal.WebUI.Models.Entity.Testimionals", b =>
                 {
                     b.Property<int>("Id")

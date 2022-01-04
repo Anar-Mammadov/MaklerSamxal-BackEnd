@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MaklerSamxal.WebUI.Models.DataContexts;
+using MaklerSamxal.WebUI.Models.Entity;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,13 +10,24 @@ namespace MaklerSamxal.WebUI.Controllers
 {
     public class PropertiesController : Controller
     {
-        public IActionResult Index()
+        readonly MaklerSamxalDbContext db;
+        public PropertiesController(MaklerSamxalDbContext db)
         {
-            return View();
+            this.db = db;
         }
-        public IActionResult Details()
+        public IActionResult Index(Product product)
         {
-            return View();
+            var data = db.Products.Where(d => d.DeleteByUserId == null).ToList();
+
+            return View(data);
+
+        }
+        public IActionResult Details(int id)
+        {
+            var data = db.Products.FirstOrDefault(d => d.Id == id);
+
+            return View(data);
+       
         }
     }
 }

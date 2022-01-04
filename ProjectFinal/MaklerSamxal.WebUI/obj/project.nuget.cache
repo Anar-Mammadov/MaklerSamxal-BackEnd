@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "ulnehjhvHHvi+LH9pDXtWLLUeg7ZTCagSnr5tApgiUR+GTSxLZbOv7yxy69ErGnbYx6YvjrJIv8jqVh1KX4LKQ==",
+  "dgSpecHash": "yYbwkVWC4FJBiA0LSNXATzvj3iUkdBSsHBFhXJHy8advGAn6/hMUjqXZSyRdo4OLc18diLkWwN0dfABcfl/iUw==",
   "success": true,
   "projectFilePath": "C:\\Users\\RADEO\\Desktop\\MaklerSamxal-BackEnd\\ProjectFinal\\MaklerSamxal.WebUI\\MaklerSamxal.WebUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\RADEO\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\RADEO\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
+    "C:\\Users\\RADEO\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\9.0.0\\mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",
     "C:\\Users\\RADEO\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\RADEO\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
     "C:\\Users\\RADEO\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\5.0.0\\microsoft.aspnetcore.razor.language.5.0.0.nupkg.sha512",
