@@ -47,8 +47,22 @@ using MaklerSamxal.WebUI.Application.Ageds;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 8 "C:\Users\RADEO\Desktop\MaklerSamxal-BackEnd\ProjectFinal\MaklerSamxal.WebUI\Areas\Admin\Views\_ViewImports.cshtml"
+using MaklerSamxal.WebUI.Application.Products;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 9 "C:\Users\RADEO\Desktop\MaklerSamxal-BackEnd\ProjectFinal\MaklerSamxal.WebUI\Areas\Admin\Views\_ViewImports.cshtml"
+using MaklerSamxal.WebUI.Models.FormModel;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d965fb0e087bb1d84eee26216c972b8c48ea216a", @"/Areas/Admin/Views/ContactPost/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"528a627ea5d48d13429564d3bae9511ce6dcc15b", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0f09dbe4e7a306e8a064aaa2aabe83f5bac741cb", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_ContactPost_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<Contact>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "index", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -118,7 +132,7 @@ using MaklerSamxal.WebUI.Application.Ageds;
                 <div class=""email-sidebar white_box"">
                     <ul class=""text-left mt-2"">
                         <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d965fb0e087bb1d84eee26216c972b8c48ea216a6788", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d965fb0e087bb1d84eee26216c972b8c48ea216a7268", async() => {
                 WriteLiteral("<i class=\"ti-user\"></i> <span> <span>Hamsi</span>  <span class=\"round_badge\">");
 #nullable restore
 #line 33 "C:\Users\RADEO\Desktop\MaklerSamxal-BackEnd\ProjectFinal\MaklerSamxal.WebUI\Areas\Admin\Views\ContactPost\Index.cshtml"
@@ -142,7 +156,7 @@ using MaklerSamxal.WebUI.Application.Ageds;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\n                        <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d965fb0e087bb1d84eee26216c972b8c48ea216a8445", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d965fb0e087bb1d84eee26216c972b8c48ea216a8925", async() => {
                 WriteLiteral("<i class=\"ti-crown\"></i> <span> <span>Cavab gozleyen</span>  <span class=\"round_badge\">");
 #nullable restore
 #line 34 "C:\Users\RADEO\Desktop\MaklerSamxal-BackEnd\ProjectFinal\MaklerSamxal.WebUI\Areas\Admin\Views\ContactPost\Index.cshtml"
@@ -170,7 +184,7 @@ using MaklerSamxal.WebUI.Application.Ageds;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\n                        <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d965fb0e087bb1d84eee26216c972b8c48ea216a10440", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d965fb0e087bb1d84eee26216c972b8c48ea216a10920", async() => {
                 WriteLiteral("<i class=\"ti-announcement\"></i> <span> <span>Cavablandi</span>  <span class=\"round_badge\">");
 #nullable restore
 #line 35 "C:\Users\RADEO\Desktop\MaklerSamxal-BackEnd\ProjectFinal\MaklerSamxal.WebUI\Areas\Admin\Views\ContactPost\Index.cshtml"
@@ -352,7 +366,7 @@ WriteAttributeValue("", 3777, item.Name, 3777, 10, false);
             WriteLiteral("\n");
             DefineSection("addjs", async() => {
                 WriteLiteral("\n\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d965fb0e087bb1d84eee26216c972b8c48ea216a19046", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d965fb0e087bb1d84eee26216c972b8c48ea216a19526", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

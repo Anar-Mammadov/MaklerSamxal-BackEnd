@@ -1,4 +1,6 @@
-﻿namespace MaklerSamxal.WebUI.Models.Entity
+﻿using System.Collections.Generic;
+
+namespace MaklerSamxal.WebUI.Models.Entity
 {
     public class Blog :BaseEntity
     {
@@ -8,6 +10,8 @@
         public string Author { get; set; }
         public  string Body { get; set; }
         public string CreatedData { get; set; }
+        public virtual ICollection<BlogPostComment> Comments { get; set; }
+
 
     }
 }

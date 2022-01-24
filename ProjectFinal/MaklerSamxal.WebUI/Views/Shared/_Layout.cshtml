@@ -19,6 +19,22 @@
 
     <title>MaklerSamxal</title>
     @RenderSection("addcss", required: false);
+    <link href="~/libs/toastr.js/toastr.css" rel="stylesheet" />
+
+    <style>
+        .is-invalid {
+            border: 1px solid red
+        }
+
+            .is-invalid + span.error {
+                color: red;
+                font-size: 1rem;
+            }
+
+        .is-valid {
+            border: 1px solid teal;
+        }
+    </style>
 </head>
 <body style="margin-top:-26px">
 
@@ -52,6 +68,35 @@
                     </div>
                     <div class="col-6 text-right">
                         <div class="mr-auto">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <a asp-controller="home" asp-action="Signin" class="p-2 pl-0">
+                                    <span>
+                                        @User.Identity.Name.ToUpper()
+                                    </span>
+                                </a>
+
+                                <a asp-controller="home" asp-action="Logout" class="p-2 pl-0">
+                                    <span>
+                                        Logout
+                                    </span>
+                                </a>
+
+                            }
+                            else
+                            {
+                                <a asp-controller="home" asp-action="Signin" class="p-2 pl-0">
+                                    <span>
+                                        Log In
+                                    </span>
+                                </a>
+
+                                <a asp-controller="home" asp-action="Register" class="p-2 pl-0">
+                                    <span>
+                                        Sign up
+                                    </span>
+                                </a>
+                            }
                             <a href="#" class="p-2 pl-0"><span class="icon-twitter"></span></a>
                             <a href="#" class="p-2 pl-0"><span class="icon-facebook"></span></a>
                             <a href="#" class="p-2 pl-0"><span class="icon-linkedin"></span></a>
@@ -107,8 +152,8 @@
                         <div class="col-md-3 mx-auto">
                             <h2 class="footer-heading mb-4">Quick Links</h2>
                             <ul class="list-unstyled">
-                                <li><a href="login.html">Login</a></li>
-                                <li><a href="register.html">Register</a></li>
+                                <li><a asp-controller="Home" asp-action="Signin">Login</a></li>
+                                <li><a asp-controller="Home" asp-action="Register">Register</a></li>
                                 <li><a href="#">Testimonials</a></li>
                                 <li><a href="contact.html">Contact Us</a></li>
                             </ul>
@@ -118,11 +163,19 @@
                 <div class="col-md-4">
                     <div class="mb-4">
                         <h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
-                        <form action="#" method="post" class="footer-subscribe">
+
+
+                        <form method="post" asp-controller="Home" asp-action="Subscrice" novalidate class="footer-subscribe" id="form">
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
+                                <input type="email"
+                                       class="form-control border-secondary text-white bg-transparent"
+                                       placeholder="Email address here..."
+                                       name="email"
+                                       id="email"
+                                       aria-label="Enter Email"
+                                       aria-describedby="button-addon2">
                                 <div class="input-group-append">
-                                    <button style="border: 0px solid black;" class="buttondu btn btn-primary text-black" type="button" id="button-addon2">Send</button>
+                                    <button style="border: 0px solid black;" class="buttondu btn btn-primary text-black" type="submit" id="button-addon2">Send</button>
                                 </div>
                             </div>
                         </form>
@@ -146,7 +199,84 @@
     <script src="~/assets/js/bootstrap.min.js"></script>
     <script src="~/assets/js/jquery.sticky.js"></script>
     <script src="~/assets/js/main.js"></script>
-
+    <script src="~/libs/jquery-validate/jquery.validate.js"></script>
+    <script src="~/libs/toastr.js/toastr.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#form').validate({
+                errorElement: 'span', // Cixan eror label yox span etdih
+                // errorClass: 'is-invalid', // span error cixan zaman class
+                //  validClass: 'is-valid', // span error cixan zaman class input class
+                highlight: function (element, errorClass, validClass) {
+                    $(element).addClass('is-invalid').remove('is-valid')// eger error varsa
+                },
+                unhighlight: function (element, errorClass, validClass) {
+                    $(element).addClass('is-valid').remove('is-invalid') // eger error yoxdusa
+                },
+            });
+        });
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": true,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": true,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+    $(document).ready(function () {
+    $('#form').submit(function (e) {
+        e.preventDefault();
+    if ($(e.currentTarget).valid() != true)
+    return;
+    const formData = new FormData(e.currentTarget);
+    $.ajax({
+    url: '@Url.Action("Subscrice")', // URL HELPERLER
+    type: 'POST',
+    data: formData,
+    contentType: false,
+    processData: false,
+    success: function (gelenData) {
+    console.log(gelenData);
+        if (gelenData.error == false) {
+        toastr.success(gelenData.massege, 'ugurludur');
+    e.currentTarget.reset(); // FORM BOSALDIR
+    } else {
+        toastr.error(gelenData.massege, 'xeta');
+    }
+    },
+    error: function (gelenData) {
+    console.log(gelenData);
+    toastr.success('Teyin olunmamis xeta bas verib', 'Error');
+    },
+    });
+    });
+      //  const lang = `Context.GetCurrentCulture()`;
+        const text = $(`[data-lang="${lang}"]`).text();
+        $(`[data-lang-viewer="language"]`).text(text);
+        $('[data-lang]').click(function (e) {
+            e.preventDefault();
+            let path = `${window.location.pathname}${window.location.search}`;
+            let selectedlang = $(e.currentTarget).data('lang');
+            let result = /\/(en|az|eu)?\/?(.*)?/.exec(path);
+            if (result != null && result[2] != undefined) {
+                path = `/${selectedlang}/${result[2]}`;
+            }
+            else if (result != null) {
+                path = `/${selectedlang}`;
+            }
+            window.location.href = path;
+        });
+    });
+    </script>
     @RenderSection("addjs", required: false);
 </body>
 </html>

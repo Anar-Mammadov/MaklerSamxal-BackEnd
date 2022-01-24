@@ -47,8 +47,22 @@ using MaklerSamxal.WebUI.Application.Ageds;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 8 "C:\Users\RADEO\Desktop\MaklerSamxal-BackEnd\ProjectFinal\MaklerSamxal.WebUI\Areas\Admin\Views\_ViewImports.cshtml"
+using MaklerSamxal.WebUI.Application.Products;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 9 "C:\Users\RADEO\Desktop\MaklerSamxal-BackEnd\ProjectFinal\MaklerSamxal.WebUI\Areas\Admin\Views\_ViewImports.cshtml"
+using MaklerSamxal.WebUI.Models.FormModel;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"527e0787306c374f23e3950a1398c49b7aebd908", @"/Areas/Admin/Views/ContactPost/Details.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"528a627ea5d48d13429564d3bae9511ce6dcc15b", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0f09dbe4e7a306e8a064aaa2aabe83f5bac741cb", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_ContactPost_Details : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Contact>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("type", "hidden", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -161,9 +175,9 @@ WriteAttributeValue("", 1649, Model.Content, 1649, 14, false);
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(" aria-label=\"Default\" aria-describedby=\"inputGroup-sizing-default\">\n            </div>\n        </div>\n    </div>\n</div>\n\n\n\n<dd class=\"col-4 \" id=\"form-answer\" style=\"display:none\">\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "527e0787306c374f23e3950a1398c49b7aebd90810069", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "527e0787306c374f23e3950a1398c49b7aebd90810549", async() => {
                 WriteLiteral("\n        <textarea name=\"Answer\" class=\"form-control\" placeholder=\"birseyler yazin\"></textarea>\n        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "527e0787306c374f23e3950a1398c49b7aebd90810436", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "527e0787306c374f23e3950a1398c49b7aebd90810916", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -204,7 +218,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n</dd>\n<div>\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "527e0787306c374f23e3950a1398c49b7aebd90813626", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "527e0787306c374f23e3950a1398c49b7aebd90814106", async() => {
                 WriteLiteral("Back to List");
             }
             );

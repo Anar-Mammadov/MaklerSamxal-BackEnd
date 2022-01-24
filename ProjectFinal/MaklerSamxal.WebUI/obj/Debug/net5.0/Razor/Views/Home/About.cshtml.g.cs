@@ -19,8 +19,15 @@ using MaklerSamxal.WebUI.Models.Entity;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "C:\Users\RADEO\Desktop\MaklerSamxal-BackEnd\ProjectFinal\MaklerSamxal.WebUI\Views\_ViewImports.cshtml"
+using MaklerSamxal.WebUI.Models.FormModel;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"56783a05b8fb191a3a34e28fc024e9e1e4de546b", @"/Views/Home/About.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c225d8f05aeca499d39fe201d6710d316788e779", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"14c17820444668951ef2abbccffe4c33f59389e3", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_About : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<Testimionals>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("style", new global::Microsoft.AspNetCore.Html.HtmlString("width: 50px;height: 50px;border-radius: 50%;margin-top: 20px;"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -160,7 +167,7 @@ using MaklerSamxal.WebUI.Models.Entity;
 #line hidden
 #nullable disable
             WriteLiteral("            <div class=\"col-md-6 TESTIMONIALS \">\r\n                <div class=\"ftco-testimonial-1\">\r\n                    <div class=\"ftco-testimonial-vcard d-flex align-items-center mb-4\">\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "56783a05b8fb191a3a34e28fc024e9e1e4de546b10327", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "56783a05b8fb191a3a34e28fc024e9e1e4de546b10553", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

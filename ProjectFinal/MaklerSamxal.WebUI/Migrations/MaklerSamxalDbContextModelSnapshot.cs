@@ -61,6 +61,10 @@ namespace MaklerSamxal.WebUI.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CreateByUserId");
+
+                    b.HasIndex("DeleteByUserId");
+
                     b.ToTable("Agents");
                 });
 
@@ -100,7 +104,52 @@ namespace MaklerSamxal.WebUI.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CreateByUserId");
+
+                    b.HasIndex("DeleteByUserId");
+
                     b.ToTable("Blogs");
+                });
+
+            modelBuilder.Entity("MaklerSamxal.WebUI.Models.Entity.BlogPostComment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BlogPostId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("CreateByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreateData")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("DeleteByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DeleteData")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("ParentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BlogPostId");
+
+                    b.HasIndex("CreateByUserId");
+
+                    b.HasIndex("DeleteByUserId");
+
+                    b.HasIndex("ParentId");
+
+                    b.ToTable("BlogPostComments");
                 });
 
             modelBuilder.Entity("MaklerSamxal.WebUI.Models.Entity.Contact", b =>
@@ -149,7 +198,211 @@ namespace MaklerSamxal.WebUI.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CreateByUserId");
+
+                    b.HasIndex("DeleteByUserId");
+
                     b.ToTable("Contacts");
+                });
+
+            modelBuilder.Entity("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerRole", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("Roles", "Membership");
+                });
+
+            modelBuilder.Entity("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerRoleClaim", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("RoleClaims", "Membership");
+                });
+
+            modelBuilder.Entity("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerUser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Activates")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("Users", "Membership");
+                });
+
+            modelBuilder.Entity("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerUserClaim", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserClaims", "Membership");
+                });
+
+            modelBuilder.Entity("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerUserLogin", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserLogins", "Membership");
+                });
+
+            modelBuilder.Entity("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerUserRole", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("UserRoles", "Membership");
+                });
+
+            modelBuilder.Entity("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerUserToken", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("UserTokens", "Membership");
                 });
 
             modelBuilder.Entity("MaklerSamxal.WebUI.Models.Entity.Product", b =>
@@ -200,7 +453,48 @@ namespace MaklerSamxal.WebUI.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CreateByUserId");
+
+                    b.HasIndex("DeleteByUserId");
+
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("MaklerSamxal.WebUI.Models.Entity.Subscrice", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CreateByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreateData")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("DeleteByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DeleteData")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("EmailConfirmedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreateByUserId");
+
+                    b.HasIndex("DeleteByUserId");
+
+                    b.ToTable("Subscrices");
                 });
 
             modelBuilder.Entity("MaklerSamxal.WebUI.Models.Entity.Testimionals", b =>
@@ -236,7 +530,186 @@ namespace MaklerSamxal.WebUI.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CreateByUserId");
+
+                    b.HasIndex("DeleteByUserId");
+
                     b.ToTable("Testimionalss");
+                });
+
+            modelBuilder.Entity("MaklerSamxal.WebUI.Models.Entity.Agent", b =>
+                {
+                    b.HasOne("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerUser", "CreateByUser")
+                        .WithMany()
+                        .HasForeignKey("CreateByUserId");
+
+                    b.HasOne("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerUser", "DeleteByUser")
+                        .WithMany()
+                        .HasForeignKey("DeleteByUserId");
+
+                    b.Navigation("CreateByUser");
+
+                    b.Navigation("DeleteByUser");
+                });
+
+            modelBuilder.Entity("MaklerSamxal.WebUI.Models.Entity.Blog", b =>
+                {
+                    b.HasOne("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerUser", "CreateByUser")
+                        .WithMany()
+                        .HasForeignKey("CreateByUserId");
+
+                    b.HasOne("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerUser", "DeleteByUser")
+                        .WithMany()
+                        .HasForeignKey("DeleteByUserId");
+
+                    b.Navigation("CreateByUser");
+
+                    b.Navigation("DeleteByUser");
+                });
+
+            modelBuilder.Entity("MaklerSamxal.WebUI.Models.Entity.BlogPostComment", b =>
+                {
+                    b.HasOne("MaklerSamxal.WebUI.Models.Entity.Blog", "BlogPost")
+                        .WithMany()
+                        .HasForeignKey("BlogPostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerUser", "CreateByUser")
+                        .WithMany()
+                        .HasForeignKey("CreateByUserId");
+
+                    b.HasOne("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerUser", "DeleteByUser")
+                        .WithMany()
+                        .HasForeignKey("DeleteByUserId");
+
+                    b.HasOne("MaklerSamxal.WebUI.Models.Entity.BlogPostComment", "Parent")
+                        .WithMany("Children")
+                        .HasForeignKey("ParentId");
+
+                    b.Navigation("BlogPost");
+
+                    b.Navigation("CreateByUser");
+
+                    b.Navigation("DeleteByUser");
+
+                    b.Navigation("Parent");
+                });
+
+            modelBuilder.Entity("MaklerSamxal.WebUI.Models.Entity.Contact", b =>
+                {
+                    b.HasOne("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerUser", "CreateByUser")
+                        .WithMany()
+                        .HasForeignKey("CreateByUserId");
+
+                    b.HasOne("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerUser", "DeleteByUser")
+                        .WithMany()
+                        .HasForeignKey("DeleteByUserId");
+
+                    b.Navigation("CreateByUser");
+
+                    b.Navigation("DeleteByUser");
+                });
+
+            modelBuilder.Entity("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerRoleClaim", b =>
+                {
+                    b.HasOne("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerUserClaim", b =>
+                {
+                    b.HasOne("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerUserLogin", b =>
+                {
+                    b.HasOne("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerUserRole", b =>
+                {
+                    b.HasOne("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerUserToken", b =>
+                {
+                    b.HasOne("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MaklerSamxal.WebUI.Models.Entity.Product", b =>
+                {
+                    b.HasOne("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerUser", "CreateByUser")
+                        .WithMany()
+                        .HasForeignKey("CreateByUserId");
+
+                    b.HasOne("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerUser", "DeleteByUser")
+                        .WithMany()
+                        .HasForeignKey("DeleteByUserId");
+
+                    b.Navigation("CreateByUser");
+
+                    b.Navigation("DeleteByUser");
+                });
+
+            modelBuilder.Entity("MaklerSamxal.WebUI.Models.Entity.Subscrice", b =>
+                {
+                    b.HasOne("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerUser", "CreateByUser")
+                        .WithMany()
+                        .HasForeignKey("CreateByUserId");
+
+                    b.HasOne("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerUser", "DeleteByUser")
+                        .WithMany()
+                        .HasForeignKey("DeleteByUserId");
+
+                    b.Navigation("CreateByUser");
+
+                    b.Navigation("DeleteByUser");
+                });
+
+            modelBuilder.Entity("MaklerSamxal.WebUI.Models.Entity.Testimionals", b =>
+                {
+                    b.HasOne("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerUser", "CreateByUser")
+                        .WithMany()
+                        .HasForeignKey("CreateByUserId");
+
+                    b.HasOne("MaklerSamxal.WebUI.Models.Entity.Membership.MaklerUser", "DeleteByUser")
+                        .WithMany()
+                        .HasForeignKey("DeleteByUserId");
+
+                    b.Navigation("CreateByUser");
+
+                    b.Navigation("DeleteByUser");
+                });
+
+            modelBuilder.Entity("MaklerSamxal.WebUI.Models.Entity.BlogPostComment", b =>
+                {
+                    b.Navigation("Children");
                 });
 #pragma warning restore 612, 618
         }

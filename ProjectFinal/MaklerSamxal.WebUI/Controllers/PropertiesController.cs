@@ -1,5 +1,6 @@
 ﻿using MaklerSamxal.WebUI.Models.DataContexts;
 using MaklerSamxal.WebUI.Models.Entity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace MaklerSamxal.WebUI.Controllers
         {
             this.db = db;
         }
+        [AllowAnonymous]
         public IActionResult Index(Product product)
         {
             var data = db.Products.Where(d => d.DeleteByUserId == null).ToList();

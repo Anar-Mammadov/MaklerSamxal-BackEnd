@@ -19,8 +19,15 @@ using MaklerSamxal.WebUI.Models.Entity;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "C:\Users\RADEO\Desktop\MaklerSamxal-BackEnd\ProjectFinal\MaklerSamxal.WebUI\Views\_ViewImports.cshtml"
+using MaklerSamxal.WebUI.Models.FormModel;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b161bd2e5e47f896f9de936123f101d7495e0535", @"/Views/Blog/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c225d8f05aeca499d39fe201d6710d316788e779", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"14c17820444668951ef2abbccffe4c33f59389e3", @"/Views/_ViewImports.cshtml")]
     public class Views_Blog_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<Blog>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Details", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -69,7 +76,7 @@ using MaklerSamxal.WebUI.Models.Entity;
 #line hidden
 #nullable disable
             WriteLiteral("            <div class=\"col-md-6 col-lg-4 newscard mb-lg-4\">\r\n\r\n                <div class=\"newsimage\">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b161bd2e5e47f896f9de936123f101d7495e05354929", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b161bd2e5e47f896f9de936123f101d7495e05355155", async() => {
                 WriteLiteral(" \r\n                        <img style=\"width: 100%;height: 80%;\"");
                 BeginWriteAttribute("src", " src=\"", 832, "\"", 869, 2);
                 WriteAttributeValue("", 838, "./assets/images/", 838, 16, true);
@@ -113,7 +120,7 @@ WriteAttributeValue("", 854, item.ImagePath, 854, 15, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b161bd2e5e47f896f9de936123f101d7495e05357799", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b161bd2e5e47f896f9de936123f101d7495e05358025", async() => {
 #nullable restore
 #line 27 "C:\Users\RADEO\Desktop\MaklerSamxal-BackEnd\ProjectFinal\MaklerSamxal.WebUI\Views\Blog\Index.cshtml"
                                                                              Write(item.Title);
@@ -167,7 +174,7 @@ WriteAttributeValue("", 854, item.ImagePath, 854, 15, false);
 #line hidden
 #nullable disable
             WriteLiteral("<span class=\"mx-2\">•</span> ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b161bd2e5e47f896f9de936123f101d7495e053511001", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b161bd2e5e47f896f9de936123f101d7495e053511227", async() => {
                 WriteLiteral("News");
             }
             );

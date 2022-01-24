@@ -1,7 +1,9 @@
-﻿using MaklerSamxal.WebUI.Models.DataContexts;
+﻿using MaklerSamxal.WebUI.Application.Core;
+using MaklerSamxal.WebUI.Models.DataContexts;
 using MaklerSamxal.WebUI.Models.Entity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +17,14 @@ namespace MaklerSamxal.WebUI.Areas.Admin.Controllers
     {
 
         readonly MaklerSamxalDbContext db;
+        readonly IConfiguration configuration;
 
 
-        public ContactPostController(MaklerSamxalDbContext db)
+
+        public ContactPostController(MaklerSamxalDbContext db, IConfiguration configuration)
         {
             this.db = db;
+            this.configuration = configuration;
         }
         public async Task<IActionResult> Index(int typeId)
         {
@@ -44,8 +49,8 @@ namespace MaklerSamxal.WebUI.Areas.Admin.Controllers
             }
             return View(await query.ToListAsync());
         }
- 
-        public async Task<IActionResult>Details(int? id)
+
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
@@ -85,8 +90,21 @@ namespace MaklerSamxal.WebUI.Areas.Admin.Controllers
             contactPost.Answer = model.Answer;
             contactPost.AnswerData = DateTime.Now;
             contactPost.AnswerByUserId = 1;
+
+            string token = $"subscribetoken-{model.Id}-{DateTime.Now:yyyyMMddHHmmss}"; // token yeni id goturuk
+
+            token = token.Encrypt("");
+
+            string path = $"{Request.Scheme}://{Request.Host}/subscribe-confirm?token={token}"; // path duzeldirik
+
+
+
+            var mailSended = configuration.SendEmail(contactPost.Email, "MaklerSamxal", $"Sorguvuza cvb olara  `{model.Answer}` ");
+
+
             await db.SaveChangesAsync();
             return Redirect(nameof(Index));
         }
     }
+
 }
