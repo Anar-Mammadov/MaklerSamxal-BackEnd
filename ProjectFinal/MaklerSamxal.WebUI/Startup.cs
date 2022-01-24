@@ -131,6 +131,16 @@ namespace MaklerSamxal.WebUI
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+
+                   name: "Default-signin",
+                   pattern: "accessdenied.html",
+                   defaults: new
+                   {
+                       areas = "",
+                       controller = "Home",
+                       action = "accessdenied"
+                   });
 
                 endpoints.MapControllerRoute("adminsingin", "admin/singin.html",
                 defaults: new

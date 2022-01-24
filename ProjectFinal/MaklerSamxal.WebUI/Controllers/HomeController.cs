@@ -383,5 +383,11 @@ namespace MaklerSamxal.WebUI.Controllers
             await signInManager.SignOutAsync();
             return RedirectToAction(nameof(Signin));
         }
+
+
+        public IActionResult Accessdenied()
+        {
+            return View();
+        }
     }
 }

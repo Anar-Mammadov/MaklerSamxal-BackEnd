@@ -298,3 +298,4 @@ C:\Users\RADEO\Desktop\MaklerSamxal-BackEnd\ProjectFinal\MaklerSamxal.WebUI\obj\
 C:\Users\RADEO\Desktop\MaklerSamxal-BackEnd\ProjectFinal\MaklerSamxal.WebUI\obj\Debug\net5.0\Razor\Views\Home\Signin.cshtml.g.cs
 C:\Users\RADEO\Desktop\MaklerSamxal-BackEnd\ProjectFinal\MaklerSamxal.WebUI\obj\Debug\net5.0\Razor\Views\Home\SubscibeConfirm.cshtml.g.cs
 C:\Users\RADEO\Desktop\MaklerSamxal-BackEnd\ProjectFinal\MaklerSamxal.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Account\Singin.cshtml.g.cs
+C:\Users\RADEO\Desktop\MaklerSamxal-BackEnd\ProjectFinal\MaklerSamxal.WebUI\obj\Debug\net5.0\Razor\Views\Home\Accessdenied.cshtml.g.cs
